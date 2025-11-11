@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  researcher:
+    build: .
+    container_name: researcher-bot
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env
+    restart: unless-stopped
