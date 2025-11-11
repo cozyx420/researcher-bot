@@ -8,9 +8,10 @@ class Settings(BaseSettings):
     debug: bool = False
 
     # Suche
-    search_provider: str = "duckduckgo"  # aktuell unterstützt: duckduckgo
+    search_provider: str = "ecosia"  # <— Standard jetzt Ecosia
     http_timeout: float = 15.0
     user_agent: str = "researcher-bot/0.1 (+https://example.org)"
+    ecosia_base_url: str = "https://www.ecosia.org/search"
 
     # Summarization via Ollama (optional)
     ollama_base_url: Optional[AnyHttpUrl] = None  # z.B. http://localhost:11434
@@ -26,3 +27,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
