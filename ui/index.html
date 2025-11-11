@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manager UI</title>
+  <link rel="stylesheet" href="/ui/app.css" />
+</head>
+<body>
+  <header>
+    <h1>Manager-Bot • UI</h1>
+    <p class="sub">Tasks anlegen, an Researcher senden, Ergebnisse ansehen.</p>
+  </header>
+
+  <section class="card">
+    <div class="grid">
+      <label>API-Key (optional)
+        <input id="apiKey" type="password" placeholder="X-API-Key (falls gesetzt)" />
+      </label>
+
+      <label>Intent
+        <select id="intent">
+          <option value="research" selected>research</option>
+          <option value="mixed">mixed</option>
+          <option value="answer">answer</option>
+          <option value="plan">plan</option>
+        </select>
+      </label>
+    </div>
+
+    <label>Aufgabe / Frage
+      <textarea id="task" rows="4" placeholder="z. B. 'Neueste Entwicklungen zu XYZ zusammenfassen'"></textarea>
+    </label>
+
+    <details>
+      <summary>Erweiterte Parameter</summary>
+      <div class="grid">
+        <label>Focus
+          <input id="focus" type="text" placeholder="optional" />
+        </label>
+        <label>max_sources
+          <input id="maxSources" type="number" min="1" max="20" value="5" />
+        </label>
+      </div>
+      <label>Allow-Domains (Komma-getrennt)
+        <input id="allowDomains" type="text" placeholder="z. B. heise.de, zeit.de" />
+      </label>
+    </details>
+
+    <div class="actions">
+      <button id="runBtn">Ausführen</button>
+      <span id="status" class="muted"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Ergebnis</h2>
+    <div id="result" class="result">
+      <em>Noch kein Ergebnis.</em>
+    </div>
+    <h3>Rohantwort (JSON)</h3>
+    <pre id="jsonOut" class="code"></pre>
+  </section>
+
+  <footer>
+    <small>Manager-Bot UI – läuft auf demselben Server wie die API.</small>
+  </footer>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>
